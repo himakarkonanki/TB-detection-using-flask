@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuberculosis Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .upload-btn {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .upload-btn:hover {
+            background-color: #277777;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        #xray-container {
+            margin-top: 30px;
+        }
+
+        #xray-image {
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 100%;
+            max-height: 250px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tuberculosis Detection</h1>
+        <form id="upload-form" action="/" method="post" enctype="multipart/form-data" onsubmit="submitForm(event)">
+            <label for="file-input" class="upload-btn">Choose X-ray Image</label>
+            <input type="file" id="file-input" name="file" accept="image/*" onchange="validateAndDisplayImage(event)">
+            <input type="submit" value="Predict" class="upload-btn">
+        </form>
+        <div id="xray-container" style="display: none;">
+            <h2>Uploaded X-ray:</h2>
+            <img id="xray-image" src="#" alt="Uploaded X-ray">
+            <div id="result"></div>
+        </div>
+    </div>
+
+    <script>
+        function validateAndDisplayImage(event) {
+            // Remove previous image and result
+            document.getElementById('xray-image').src = '';
+            document.getElementById('result').innerText = '';
+
+            var file = event.target.files[0];
+            var fileName = file.name.toLowerCase();
+            var validKeywords = ['tuberculosis', 'normal', 'chncxr','aug_'];
+
+            var isValid = validKeywords.some(keyword => fileName.includes(keyword));
+
+            if (!isValid) {
+                alert('Please upload a valid image.');
+                document.getElementById('xray-container').style.display = 'none';
+                return;
+            }
+
+            var xrayImage = document.getElementById('xray-image');
+            xrayImage.src = URL.createObjectURL(file);
+            document.getElementById('xray-container').style.display = 'block';
+        }
+
+        function submitForm(event) {
+            event.preventDefault();
+            var formData = new FormData(document.getElementById('upload-form'));
+
+            fetch('/', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(result => {
+                var resultDiv = document.getElementById('result');
+                if (result === 'Tuberculosis detected') {
+                    resultDiv.innerText = 'Tuberculosis detected.';
+                } else {
+                    resultDiv.innerText = 'Normal.';
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>
