@@ -14,8 +14,7 @@ This project leverages a deep learning model based on the cbAM (Convolutional Bl
 - [Model Training](#model-training)
 - [Results](#results)
 - [Dataset](#dataset)
-- [Contributing](#contributing)
-- [License](#license)
+
 
  Features
 
