@@ -1,9 +1,10 @@
 
-Tuberculosis Detection using cbAM DenseNet 169 and Flask
+Tuberculosis Detection using CBAM DenseNet 169 and Flask
 
  Overview
 
 This project leverages a deep learning model based on the cbAM (Convolutional Block Attention Module) DenseNet 169 architecture to detect tuberculosis (TB) from chest X-ray images. A Flask web application is provided to allow users to upload X-ray images and receive predictions on whether the images show signs of tuberculosis.
+
  Table of Contents
 
 - [Overview](#overview)
@@ -18,16 +19,16 @@ This project leverages a deep learning model based on the cbAM (Convolutional Bl
 
  Features
 
-- Efficient TB Detection: Uses cbAM DenseNet 169 for accurate tuberculosis detection.
+- Efficient TB Detection: Uses CBAM DenseNet 169 for accurate tuberculosis detection.
 - Web Interface: Simple Flask-based interface for image upload and result display.
 - Data Augmentation: Enhances model generalization with various augmentation techniques.
 - Evaluation Metrics: Provides accuracy, precision, recall, and F1 score for model performance assessment.
 Architecture
 
-The project uses cbAM DenseNet 169, a combination of DenseNet's powerful feature extraction with the attention mechanism of cbAM, to focus on the most relevant parts of the image. 
+The project uses CBAM DenseNet 169, a combination of DenseNet's powerful feature extraction with the attention mechanism of CBAM, to focus on the most relevant parts of the image. 
 
 Key Components:
-- cbAM Module: Enhances feature maps by applying channel and spatial attention mechanisms.
+- CBAM Module: Enhances feature maps by applying channel and spatial attention mechanisms.
 - DenseNet 169: A deep convolutional neural network architecture that strengthens gradient flow and feature reuse.
 
 Installation
@@ -39,19 +40,8 @@ To set up the project on your local machine, follow these steps:
     git clone https://github.com/yourusername/tuberculosis-detection-cbam-densenet-flask.git
     cd tuberculosis-detection-cbam-densenet-flask
     ```
-
-2. Create a virtual environment and activate it:
-    ```bash
-    python3 -m venv venv
-    source venv/bin/activate   # On Windows, use `venv\Scripts\activate`
-    ```
-
-3. Install the required dependencies:
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-4. Run the Flask application:
+    
+2. Run the Flask application:
     ```bash
     python app.py
     ```
