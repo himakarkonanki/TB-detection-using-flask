@@ -1,9 +1,9 @@
 
-Tuberculosis Detection using CBAM DenseNet 169 and Flask
+Tuberculosis Detection using CBAM DenseNet 121 and Flask
 
  Overview
 
-This project leverages a deep learning model based on the cbAM (Convolutional Block Attention Module) DenseNet 169 architecture to detect tuberculosis (TB) from chest X-ray images. A Flask web application is provided to allow users to upload X-ray images and receive predictions on whether the images show signs of tuberculosis.
+This project leverages a deep learning model based on the cbAM (Convolutional Block Attention Module) DenseNet 121 architecture to detect tuberculosis (TB) from chest X-ray images. A Flask web application is provided to allow users to upload X-ray images and receive predictions on whether the images show signs of tuberculosis.
 
  Table of Contents
 
@@ -29,7 +29,7 @@ The project uses CBAM DenseNet 169, a combination of DenseNet's powerful feature
 
 Key Components:
 - CBAM Module: Enhances feature maps by applying channel and spatial attention mechanisms.
-- DenseNet 169: A deep convolutional neural network architecture that strengthens gradient flow and feature reuse.
+- DenseNet 121: A deep convolutional neural network architecture that strengthens gradient flow and feature reuse.
 
 Installation
 
