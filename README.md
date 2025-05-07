@@ -25,7 +25,7 @@ This project leverages a deep learning model based on the cbAM (Convolutional Bl
 - Evaluation Metrics: Provides accuracy, precision, recall, and F1 score for model performance assessment.
 Architecture
 
-The project uses CBAM DenseNet 169, a combination of DenseNet's powerful feature extraction with the attention mechanism of CBAM, to focus on the most relevant parts of the image. 
+The project uses CBAM DenseNet 121, a combination of DenseNet's powerful feature extraction with the attention mechanism of CBAM, to focus on the most relevant parts of the image. 
 
 Key Components:
 - CBAM Module: Enhances feature maps by applying channel and spatial attention mechanisms.
